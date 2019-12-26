@@ -45,6 +45,23 @@ onClickHandlerType = event => {
     var asmDisplaydata = this.state.asmDisplaydata;
     var OffsetType = this.state.type;
     var OffsetCalcString = String(this.state.fps + " " + this.state.type)
+    
+    var StartValue
+
+    function SetStart(InputValue) {
+      if (InputValue === "00") {
+        StartValue = 0
+      } else if (InputValue === "01") {
+        StartValue = 1
+      } else if (InputValue === "10") {
+        StartValue = 10
+      } 
+      return StartValue
+    }
+
+
+    var HourStartValueResult = SetStart(this.state.start)
+
     var OffsetCalcValue
 
     function SetCalc(InputValue) {
@@ -238,13 +255,13 @@ onClickHandlerType = event => {
     var DropAmountHour = TCHour * 108
 
 
-    var TCinFrames = Math.ceil(OffsetCalcValue * (0 + (TCHour * 60 * 60 * FrameMultiplier) + (TCMinute * 60 * FrameMultiplier) + (TCSec * FrameMultiplier) + Math.floor((OffsetTypeSeconds*FrameMultiplier)) + TCFrame - (Drop * (DropAmountMinute + DropAmountHour))))
+    var TCinFrames = Math.ceil(OffsetCalcValue * (0 + ((TCHour - HourStartValueResult) * 60 * 60 * FrameMultiplier) + (TCMinute * 60 * FrameMultiplier) + (TCSec * FrameMultiplier) + Math.floor((OffsetTypeSeconds*FrameMultiplier)) + TCFrame - (Drop * (DropAmountMinute + DropAmountHour))))
 
 
     var BacktoSMPTEframes = TCinFrames % DivideValueResult
     var BacktoSMPTEseconds = ((TCinFrames - BacktoSMPTEframes)/DivideValueResult) % 60
     var BacktoSMPTEMinutes = ((((TCinFrames - BacktoSMPTEframes)/DivideValueResult) - BacktoSMPTEseconds) / 60) % 60
-    var BacktoSMPTEHours = (((((TCinFrames - BacktoSMPTEframes)/DivideValueResult) - BacktoSMPTEseconds) / 60) - BacktoSMPTEMinutes) / 60
+    var BacktoSMPTEHours = (((((TCinFrames - BacktoSMPTEframes)/DivideValueResult) - BacktoSMPTEseconds) / 60) - BacktoSMPTEMinutes) / 60 + HourStartValueResult
     var cleanedSMPTE_F
     var cleanedSMPTE_S
     var cleanedSMPTE_M
