@@ -1,0 +1,66 @@
+if (OffsetTypeOfsetValue === "To 23.98") {
+  if (FPSCoded = "23.98") {
+    OffsetCalc = 1.00
+  } else if (FPSCoded = "PAL") {
+    OffsetCalc = 1.00
+  } else if (FPSCoded = "NTSC NDF") {
+    OffsetCalc = 1.250002879
+  } else if (FPSCoded = "NTSC DF") {
+    OffsetCalc = 1.251234
+  } else if (FPSCoded = "24") {
+    OffsetCalc = 1.00
+} }
+else if (OffsetTypeOfsetValue === "To PAL") {
+  if (this.state.fps = "23.98") {
+    OffsetCalc = 1.00
+  } else if (this.state.fps = "PAL") {
+    OffsetCalc = 1.00
+  } else if (this.state.fps = "NTSC NDF") {
+    OffsetCalc = 1.250002879
+  } else if (this.state.fpsthis.state.fps = "NTSC DF") {
+    OffsetCalc = 1.251234
+  } else if (FPSCoded = "24") {
+    OffsetCalc = 1.00
+} }
+else if (OffsetTypeOfsetValue === "To 24") {
+  if (FPSCoded = "23.98") {
+    OffsetCalc = 1.00
+  } else if (FPSCoded = "PAL") {
+    OffsetCalc = 1.00
+  } else if (FPSCoded = "NTSC NDF") {
+    OffsetCalc = 1.250002879
+  } else if (FPSCoded = "NTSC DF") {
+    OffsetCalc = 1.251234
+  } else if (FPSCoded = "24") {
+    OffsetCalc = 1.00
+} }
+else if (OffsetTypeOfsetValue === "To NTSC NDF") {
+  if (FPSCoded = "23.98") {
+    OffsetCalc = 0.7999982
+  } else if (FPSCoded = "PAL") {
+    OffsetCalc = 0.7999982
+  } else if (FPSCoded = "NTSC NDF") {
+    OffsetCalc = 1.250002879
+  } else if (FPSCoded = "NTSC DF") {
+    OffsetCalc = 1.000994897
+  } else if (FPSCoded = "24") {
+    OffsetCalc = 0.7999982
+} }
+else if (OffsetTypeOfsetValue === "To NTSC DF") {
+  if (FPSCoded = "23.98") {
+    OffsetCalc = 0.7992
+  } else if (FPSCoded = "PAL") {
+    OffsetCalc = 0.7992
+  } else if (FPSCoded = "NTSC NDF") {
+    OffsetCalc = 0.9990
+  } else if (FPSCoded = "NTSC DF") {
+    OffsetCalc = 1.0
+  } else if (FPSCoded = "24") {
+    OffsetCalc = 0.7992
+} }
+else if (OffsetTypeOfsetValue = "ASM") {
+  OffsetCalc = 1.0
+}
+else if (OffsetTypeOfsetValue = "1.5 Sec") {
+  OffsetCalc = 1.0
+}
