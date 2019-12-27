@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-width:600px;
 background-color: #282c34;
+overflow-x: hidden;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -20,5 +21,7 @@ code {
 }
 
 .WhiteFont {
-  color: #00ff00;
+  padding: 15px;
+  color: #FFBD33;
+  font-weight: bold;
 }

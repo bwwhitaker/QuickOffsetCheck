@@ -5,9 +5,6 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
 import './index.css';
 
 class ASMDisplay extends React.Component {
@@ -19,7 +16,6 @@ class ASMDisplay extends React.Component {
       fps: "23.98",
       type: "ASM",
       asmDisplaydata: "--:--:--.--",
-      TCinFrames: "I'm the answer!",
     }
   }
 
@@ -45,7 +41,7 @@ onClickHandlerType = event => {
     var asmDisplaydata = this.state.asmDisplaydata;
     var OffsetType = this.state.type;
     var OffsetCalcString = String(this.state.fps + " " + this.state.type)
-    
+
     var StartValue
 
     function SetStart(InputValue) {
@@ -55,7 +51,7 @@ onClickHandlerType = event => {
         StartValue = 1
       } else if (InputValue === "10") {
         StartValue = 10
-      } 
+      }
       return StartValue
     }
 
@@ -92,9 +88,9 @@ onClickHandlerType = event => {
       } else if (InputValue === "23.98 To PAL") {
         OffsetCalcValue = 1
       } else if (InputValue === "23.98 To NTSC DF") {
-        OffsetCalcValue = 1.25127551
+        OffsetCalcValue = 1.25124962780642
       } else if (InputValue === "23.98 To NTSC NDF") {
-        OffsetCalcValue = 1.250000179
+        OffsetCalcValue = 1.2500001787724
       } else if (InputValue === "24 To 23.98") {
         OffsetCalcValue = 1
       } else if (InputValue === "24 To 24") {
@@ -102,9 +98,9 @@ onClickHandlerType = event => {
       } else if (InputValue === "24 To PAL") {
         OffsetCalcValue = 1
       } else if (InputValue === "24 To NTSC DF") {
-        OffsetCalcValue = 1.25127551
+        OffsetCalcValue = 1.25124962780642
       } else if (InputValue === "24 To NTSC NDF") {
-        OffsetCalcValue = 1.250000179
+        OffsetCalcValue = 1.2500001787724
       } else if (InputValue === "PAL To 23.98") {
         OffsetCalcValue = 1
       } else if (InputValue === "PAL To 24") {
@@ -112,27 +108,27 @@ onClickHandlerType = event => {
       } else if (InputValue === "PAL To PAL") {
         OffsetCalcValue = 1
       } else if (InputValue === "PAL To NTSC DF") {
-        OffsetCalcValue = 1.251249628
+        OffsetCalcValue = 1.25124962780642
       } else if (InputValue === "PAL To NTSC NDF") {
-        OffsetCalcValue = 1.250000179
+        OffsetCalcValue = 1.2500001787724
       } else if (InputValue === "NTSC DF To 23.98") {
-        OffsetCalcValue = 0.7992010371
+        OffsetCalcValue = 0.799201037053617
       } else if (InputValue === "NTSC DF To 24") {
-        OffsetCalcValue = 0.7992010371
+        OffsetCalcValue = 0.799201037053617
       } else if (InputValue === "NTSC DF To PAL") {
-        OffsetCalcValue = 0.7992010371
+        OffsetCalcValue = 0.799201037053617
       } else if (InputValue === "NTSC DF To NTSC DF") {
         OffsetCalcValue = 1
       } else if (InputValue === "NTSC DF To NTSC NDF") {
-        OffsetCalcValue = 0.9990014392
+        OffsetCalcValue = 0.999001439195418
       } else if (InputValue === "NTSC NDF To 23.98") {
-        OffsetCalcValue = 0.7999998856
+        OffsetCalcValue = 0.799999885591553
       } else if (InputValue === "NTSC NDF To 24") {
-        OffsetCalcValue = 0.7999998856
+        OffsetCalcValue = 0.799999885591553
       } else if (InputValue === "NTSC NDF To PAL") {
-        OffsetCalcValue = 0.7999998856
+        OffsetCalcValue = 0.799999885591553
       } else if (InputValue === "NTSC NDF To NTSC DF") {
-        OffsetCalcValue = 1.000999559
+        OffsetCalcValue = 1.00099955909492
       } else if (InputValue === "NTSC NDF To NTSC NDF") {
         OffsetCalcValue = 1
       }
@@ -255,7 +251,7 @@ onClickHandlerType = event => {
     var DropAmountHour = TCHour * 108
 
 
-    var TCinFrames = Math.ceil(OffsetCalcValue * (0 + ((TCHour - HourStartValueResult) * 60 * 60 * FrameMultiplier) + (TCMinute * 60 * FrameMultiplier) + (TCSec * FrameMultiplier) + Math.floor((OffsetTypeSeconds*FrameMultiplier)) + TCFrame - (Drop * (DropAmountMinute + DropAmountHour))))
+    var TCinFrames = Math.ceil(OffsetCalcValueResult * (0 + ((TCHour - HourStartValueResult) * 60 * 60 * FrameMultiplier) + (TCMinute * 60 * FrameMultiplier) + (TCSec * FrameMultiplier) + Math.floor((OffsetTypeSeconds*FrameMultiplier)) + TCFrame - (Drop * (DropAmountMinute + DropAmountHour))))
 
 
     var BacktoSMPTEframes = TCinFrames % DivideValueResult
@@ -297,6 +293,8 @@ onClickHandlerType = event => {
       <div>
                 <InputGroup >
                 <InputGroup.Prepend>
+                <InputGroup.Text id="basic-addon1">Hour Start:</InputGroup.Text>
+                </InputGroup.Prepend>
                     <DropdownButton
                     as={InputGroup.Append}
                     variant="dark"
@@ -307,8 +305,9 @@ onClickHandlerType = event => {
                     <Dropdown.Item  active={this.state.start === "10"} onClick={this.onClickHandlerStart}>10</Dropdown.Item>
                     </div>
                   </DropdownButton>
+                  <InputGroup.Prepend>
+                  <InputGroup.Text id="basic-addon1">FPS:</InputGroup.Text>
                   </InputGroup.Prepend>
-            <InputGroup.Append>
                 <DropdownButton
                 as={InputGroup.Append}
                 variant="dark"
@@ -321,7 +320,9 @@ onClickHandlerType = event => {
                 <Dropdown.Item  active={this.state.fps === "NTSC NDF"} onClick={this.onClickHandlerFPS}>NTSC NDF</Dropdown.Item>
                 </div>
               </DropdownButton>
-              </InputGroup.Append>
+              <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1">Offset Type:</InputGroup.Text>
+              </InputGroup.Prepend>
               <DropdownButton
               as={InputGroup.Append}
               variant="dark"
@@ -337,23 +338,13 @@ onClickHandlerType = event => {
                 <Dropdown.Item  active={this.state.fps === "To NTSC NDF"} onClick={this.onClickHandlerType}>To NTSC NDF</Dropdown.Item>
                 </div>
               </DropdownButton>
-
-<InputGroup.Prepend>
-              <Button variant="warning" onClick={() => this.setState({ asmDisplaydata: BackToSMPTE})}>Calculate</Button>
+              <InputGroup.Prepend>
+                <Button variant="warning" onClick={() => this.setState({ asmDisplaydata: BackToSMPTE})}>Calculate</Button>
               </InputGroup.Prepend>
               <InputGroup.Append>
            <InputGroup.Text >{asmDisplaydata}</InputGroup.Text>
           </InputGroup.Append>
         </InputGroup>
-        <p class="WhiteFont">
-        {OffsetCalcString} {OffsetCalcValueResult}
-        </p>
-
-
-
-
-
-
   </div>
   );
 }

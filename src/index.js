@@ -6,14 +6,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import TCInput from './TCInput';
-import FPSSelect from './FPSSelect.js';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import OffsetSelect from './OffsetSelect.js';
-import FrameRateGrid from './FrameRateGrid.js';
-
-
 import ASMDisplay from './ASMDisplay';
 
 class Index extends React.Component {
@@ -31,7 +25,6 @@ class Index extends React.Component {
     }
 
     render() {
-      var TCInputdata = this.props.TC
 
       return(
           <div>
@@ -43,7 +36,10 @@ class Index extends React.Component {
                 <ASMDisplay TCdata={this.state.TC} FPSdata={this.state.FPS} />
             </Col>
             </Row>
-          
+            <Row>
+              <p class="WhiteFont">Please Note: Calculated Timecode may be 1-5 frames before/after the true timecode when converting between frame rates. </p>
+            </Row>
+
 </div>
 
       );

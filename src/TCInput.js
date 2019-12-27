@@ -16,13 +16,11 @@ class TCInput extends React.Component {
 
   render() {
     return (
-      <div>
       <Container>
         <InputGroup>
           <Form.Control type="text" onChange={this.getContent.bind(this)} placeholder="Enter TC: --:--:--.--"/>
         </InputGroup>
         </Container>
-      </div>
     );
   }
 }
