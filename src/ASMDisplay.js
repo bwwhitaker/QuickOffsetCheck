@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import './index.css';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import copyimage from './clip.png'
 
 class ASMDisplay extends React.Component {
 
@@ -33,10 +35,8 @@ onClickHandlerType = event => {
   this.setState({ type })
 }
 
-
-
   render() {
-    var TCinputdata = this.props.TCdata.replace(".",":").replace(".",":").replace(".",":").replace(".",":").replace(";",":").replace(";",":").replace(";",":").replace(";",":")
+    var TCinputdata = (this.props.TCdata.replace(".",":").replace(".",":").replace(".",":").replace(".",":").replace(";",":").replace(";",":").replace(";",":").replace(";",":")+":00:00:00:00")
     var FPSRate = this.state.fps;
     var asmDisplaydata = this.state.asmDisplaydata;
     var OffsetType = this.state.type;
@@ -291,9 +291,10 @@ onClickHandlerType = event => {
 
     return (
       <div>
-                <InputGroup >
+                <InputGroup>
+
                 <InputGroup.Prepend>
-                <InputGroup.Text id="basic-addon1">Hour Start:</InputGroup.Text>
+                <InputGroup.Text id="basic-addon1">Hour:</InputGroup.Text>
                 </InputGroup.Prepend>
                     <DropdownButton
                     as={InputGroup.Append}
@@ -321,7 +322,7 @@ onClickHandlerType = event => {
                 </div>
               </DropdownButton>
               <InputGroup.Prepend>
-              <InputGroup.Text id="basic-addon1">Offset Type:</InputGroup.Text>
+              <InputGroup.Text id="basic-addon1">Offset:</InputGroup.Text>
               </InputGroup.Prepend>
               <DropdownButton
               as={InputGroup.Append}
@@ -344,6 +345,13 @@ onClickHandlerType = event => {
               <InputGroup.Append>
            <InputGroup.Text >{asmDisplaydata}</InputGroup.Text>
           </InputGroup.Append>
+          <InputGroup.Append>
+          <CopyToClipboard text={this.state.asmDisplaydata}>
+       <Button variant="warning"><img src={copyimage} alt="Copy"/></Button>
+       </CopyToClipboard>
+      </InputGroup.Append>
+
+
         </InputGroup>
   </div>
   );

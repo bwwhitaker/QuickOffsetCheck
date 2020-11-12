@@ -1,0 +1,12 @@
+version: 1.1.5
+files:
+  - url: QOC-1.1.5-mac.zip
+    sha512: A/C37Mcals0iJB7nnoo1yCzdkfXTQfBXycGeTBo+/N2sn5JkLUNl7OYL5vz67V6KSUvrfENMprFNeteJQboryQ==
+    size: 78686816
+    blockMapSize: 83282
+  - url: QOC-1.1.5.dmg
+    sha512: q0CIxjhVBE8xuwISC/o9ieqib7xZnKdxVwgsSwsDw33a96TnSBz3Lbl7oNWS+LpoQdOlybjdGlPuG20Sqs1vsw==
+    size: 81791173
+path: QOC-1.1.5-mac.zip
+sha512: A/C37Mcals0iJB7nnoo1yCzdkfXTQfBXycGeTBo+/N2sn5JkLUNl7OYL5vz67V6KSUvrfENMprFNeteJQboryQ==
+releaseDate: '2020-01-17T05:42:43.194Z'

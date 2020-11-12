@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ASMDisplay from './ASMDisplay';
 
+
 class Index extends React.Component {
     constructor(props){
       super(props);
@@ -29,18 +30,19 @@ class Index extends React.Component {
       return(
           <div>
           <Row>
-            <Col sm={3.5}>
-                <TCInput callback={this.formTCInput.bind(this)} />
-            </Col>
-            <Col sm={8.5}>
-                <ASMDisplay TCdata={this.state.TC} FPSdata={this.state.FPS} />
-            </Col>
-            </Row>
+          <Col sm={3.5}>
+              <TCInput callback={this.formTCInput.bind(this)} />
+          </Col>
+          <Col sm={8.5}>
+              <ASMDisplay TCdata={this.state.TC} FPSdata={this.state.FPS} />
+          </Col>
+          </Row>
+
             <Row>
               <p class="WhiteFont">Please Note: Calculated Timecode may be 1-5 frames before/after the true timecode when converting between frame rates. </p>
             </Row>
-
 </div>
+
 
       );
     }

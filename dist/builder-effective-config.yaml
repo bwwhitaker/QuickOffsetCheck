@@ -1,0 +1,19 @@
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - filter:
+      - build/**/*
+      - build/**/*
+      - node_modules/**/*
+extraMetadata:
+  main: build/electron.js
+productName: QOC
+copyright: Copyright © 2019
+mac:
+  category: public.app-category.utilities
+  icon: build/icons/icon.icns
+win:
+  icon: build/icons/icon.ico
+extends: react-cra
+electronVersion: 4.2.12
